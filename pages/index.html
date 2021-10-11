@@ -49,9 +49,9 @@
             <div class="row-content">
                 <label class="label text" for="gender">Gender</label>
                 <div>
-                    <input type="radio" id="male" name="gender" value="male">
+                    <input type="radio" id="male" name="gender" value="m">
                     <label class="text" for="male">Male</label>
-                    <input type="radio" id="female" name="gender" value="female">
+                    <input type="radio" id="female" name="gender" value="f">
                     <label class="text" for="female">Female</label>
                 </div>
             </div>
@@ -79,7 +79,7 @@
             <div class="row-content">
                 <label class="label text" for="startDate">Start Date</label>
                 <div>
-                    <select name="day">
+                    <select id="day" name="day">
                         <option value="01">1</option>
                         <option value="02">2</option>
                         <option value="03">3</option>
@@ -112,7 +112,7 @@
                         <option value="30">30</option>
                         <option value="31">31</option>
                    </select>
-                   <select name="month">
+                   <select id="month" name="month">
                     <option value="01">January</option>
                     <option value="02">February</option>
                     <option value="03">March</option>
@@ -126,7 +126,7 @@
                     <option value="11">November</option>
                     <option value="12">December</option>
                  </select> 
-                 <select name="year">
+                 <select id="year" name="year">
                     <option value="2021">2021</option>
                     <option value="2020">2020</option>
                     <option value="2019">2019</option>
@@ -146,6 +146,7 @@
             </div>
         </form>
     </div>
+    <script src="../js/EmployeePayrollData.js"></script>
     <script src="../js/employeePayroll.js"></script>
 </body>
 </html>
