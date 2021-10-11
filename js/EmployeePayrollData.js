@@ -41,7 +41,10 @@ class EmployeePayrllData {
 
     get startDate() {return this._startDate; }
     set startDate(startDate) {
-        if(new Date() < startDate) throw 'Start date is invalid!';
+        var today = new Date();
+        const one_month_ago = new Date(today.setDate(today.getDate()-30));
+        today = new Date();
+        if(today < startDate || startDate < one_month_ago) throw 'Start date is invalid!';
         else this._startDate = startDate;
     }
 
@@ -55,10 +58,11 @@ class EmployeePayrllData {
         + ", gender: "+this.gender+", startDate: "+empDate;
     }
 }
-
-try {
-    let newEmployeePayrllData  = new EmployeePayrllData(1, "Terissa", 30000, 'm', new Date('2022-01-01'));
-    console.log("employeePayrllData: "+newEmployeePayrllData.toString());
-} catch (e) {
-    console.error(e);
-}
+//  {
+//     try {
+//         let newEmployeePayrllData  = new EmployeePayrllData(1, "Terissa", 30000, 'm', new Date('2021-10-01'));
+//         console.log("employeePayrllData: "+newEmployeePayrllData.toString());
+//     } catch (e) {
+//         console.error(e);
+//     }
+//  }
