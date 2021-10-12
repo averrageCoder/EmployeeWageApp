@@ -27,6 +27,7 @@ window.addEventListener('DOMContentLoaded',(event) => {
 const save = () => {
     try {
         let employeeData = createNewEmployeeData();
+        createAndUpdateStorage(employeeData);
     }
     catch(e) {
         alert(e);
@@ -51,7 +52,7 @@ function createNewEmployeeData() {
     employeeData.note = getInputValueId('#notes');
     let date = getInputValueId('#year')+"-"+getInputValueId('#month')+"-"+getInputValueId('#day');
     employeeData.startDate = new Date(date);
-    alert(employeeData.toString());
+    //alert(employeeData.toString());
     return employeeData;
 }
 
@@ -68,6 +69,22 @@ function getInputValueId(id) {
     return document.querySelector(id).value;
 }
 
+
+//uc4
+function createAndUpdateStorage(employeeData) {
+
+    let EmployeePayrllDataList = JSON.parse(localStorage.getItem('EmployeePayrllDataList'));
+
+    if(EmployeePayrllDataList != undefined) {
+        EmployeePayrllDataList.push(employeeData);
+    }
+    else {
+        EmployeePayrllDataList = [employeeData];
+    }
+
+    alert(EmployeePayrllDataList.toString());
+    localStorage.setItem("EmployeePayrllDataList", JSON.stringify(EmployeePayrllDataList));
+}
 function validateStartDate() {
     const day = document.querySelector('#day').value;
     const month = parseInt(document.querySelector('#month').value) -1;
