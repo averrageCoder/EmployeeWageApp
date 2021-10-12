@@ -85,6 +85,31 @@ function createAndUpdateStorage(employeeData) {
     alert(EmployeePayrllDataList.toString());
     localStorage.setItem("EmployeePayrllDataList", JSON.stringify(EmployeePayrllDataList));
 }
+
+function resetForm() {
+    setValue('#name','');
+    unSelectValues('[name=profile]');
+    unSelectValues('[name=gender]');
+    unSelectValues('[name=department]');
+    setValue('#salary','');
+    setValue('#notes','');
+    setValue('#day','01');
+    setValue('#month','01');
+    setValue('#year','2021');
+}
+
+const unSelectValues = (property) => {
+    let allItems = document.querySelectorAll(property);
+    allItems.forEach(element => {
+        element.checked = false;
+    });
+}
+
+const setValue = (id, value) => {
+    const element = document.querySelector(id);
+    element.value = value;
+}
+
 function validateStartDate() {
     const day = document.querySelector('#day').value;
     const month = parseInt(document.querySelector('#month').value) -1;
