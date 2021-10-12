@@ -23,10 +23,56 @@ window.addEventListener('DOMContentLoaded',(event) => {
     });
 });
 
+
+const save = () => {
+    try {
+        let employeeData = createNewEmployeeData();
+    }
+    catch(e) {
+        alert(e);
+        //return; 
+    }
+}
+
+function createNewEmployeeData() {
+    let employeeData = new EmployeePayrllData();
+    try {
+        employeeData.name = getInputValueId('#name');
+    }
+    catch(e) {
+        setTextValue('.text-error',e);
+        //return;
+    }
+
+    employeeData.profilePic = getSelectedValues('[name=profile]').pop();
+    employeeData.gender = getSelectedValues('[name=gender]').pop();
+    employeeData.department = getSelectedValues('[name=department]');
+    employeeData.salary = getInputValueId('#salary');
+    employeeData.note = getInputValueId('#notes');
+    let date = getInputValueId('#year')+"-"+getInputValueId('#month')+"-"+getInputValueId('#day');
+    employeeData.startDate = new Date(date);
+    alert(employeeData.toString());
+    return employeeData;
+}
+
+function getSelectedValues(propertyValue) {
+    let allItems = document.querySelectorAll(propertyValue);
+    let selectedItems = new Array();
+    allItems.forEach(element => {
+        if(element.checked) selectedItems.push(element.value);
+    });
+    return selectedItems;
+}
+
+function getInputValueId(id) {
+    return document.querySelector(id).value;
+}
+
 function validateStartDate() {
     const day = document.querySelector('#day').value;
     const month = parseInt(document.querySelector('#month').value) -1;
     const year = document.querySelector('#year').value;
+
     const start_date = new Date(year,month,day);
     const text_error = document.querySelector('.startdate-error');
     var today = new Date();
@@ -47,7 +93,7 @@ for(var obj of object) {
     obj.addEventListener("change", validateStartDate);
 }
 
-function save() {
+function save2() {
     var markedCheckbox = document.getElementsByClassName('checkbox');
     let departments = new Array();  
     for (var checkbox of markedCheckbox) {

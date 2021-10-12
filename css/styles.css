@@ -182,17 +182,17 @@ error-output {
     margin-left: 10px;
 }
 
-@media only screen and (max-width: 960px) {
+@media only screen and (max-width: 1000px) {
     .cancelButton {
         margin-left: 0px;
     }
     .form {
-        width: 85%;
+        width: 90%;
         padding: 44px 20px;
     }
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 660px) {
     .form {
         margin-top: 10px;
     }
