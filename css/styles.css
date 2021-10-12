@@ -79,6 +79,7 @@ body {
     margin-bottom: 10px;
     align-items: center;
     border: 0px solid green;
+    margin-bottom: 20px;
 }
 
 .label {
@@ -125,6 +126,7 @@ label {
 /* UC5 */
 select {
     padding: 10px;
+    margin-right: 15px;
     border: 1px solid #ccc;
     border-radius: 4px;
     resize: vertical;
@@ -150,7 +152,7 @@ select {
     background: transparent;
     border: none;
     font-weight: 400;
-    min-width: 140px;
+    min-width: 15vw;
     padding: 7px;
     border: 1px solid #707070;
     cursor: pointer;
@@ -173,6 +175,13 @@ select {
     background-color: lightcoral;
 }
 
+error-output {
+    font-size: 12px;
+    font-style: italic;
+    color: red;
+    margin-left: 10px;
+}
+
 @media only screen and (max-width: 960px) {
     .cancelButton {
         margin-left: 0px;
@@ -187,7 +196,7 @@ select {
     .form {
         margin-top: 10px;
     }
-    .row {
+    .row-content {
         flex-direction: column;
     }
     .uploadButton {
@@ -210,5 +219,11 @@ select {
     .buttonParent {
         flex-direction: column-reverse;
         align-items: flex-start;
+    }
+    select {
+        margin-right: 0px;
+    }
+    .text {
+        align-items: baseline;
     }
 }
