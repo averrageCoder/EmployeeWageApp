@@ -1,28 +1,27 @@
-const salary = document.querySelector('#salary');
-const salary_output = document.querySelector('.salary-output');
-salary_output.textContent = salary.value;
-salary.addEventListener('input',function() {
-    salary_output.textContent = salary.value;
-});
-
-document.getElementsByClassName("submitButton").disabled = true;
-function validateName() {
-    const text = document.querySelector('#name');
+window.addEventListener('DOMContentLoaded',(event) => {
+    const name = document.querySelector('#name');
     const text_error = document.querySelector('.name-error');
-    let nameRegex = RegExp('^[A-Z]{1}[a-z]{2,}$');
-    if(nameRegex.test(text.value)) {
-        text_error.textContent = "";
-        return true;
-    }
-    else {
-        text_error.textContent = "Name is incorrect!";
-        return false;
-    }
-}
+    name.addEventListener('input', function() {
+        if(name.value.length == 0) {
+            text_error.textContent = "";
+            return
+        }
+        try {
+            (new EmployeePayrllData()).name = name.value;
+            text_error.textContent = "";
+        }
+        catch(e) {
+            text_error.textContent = e;
+        }
+    });
 
-const text = document.querySelector('#name');
-text.addEventListener('input', validateName);
-
+    const salary = document.querySelector('#salary');
+    const salary_output = document.querySelector('.salary-output');
+    salary_output.textContent = salary.value;
+    salary.addEventListener('input',function() {
+        salary_output.textContent = salary.value;
+    });
+});
 
 function validateStartDate() {
     const day = document.querySelector('#day').value;

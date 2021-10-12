@@ -1,16 +1,5 @@
 class EmployeePayrllData {
 
-    constructor(...params) {
-        this.id = params[0];
-        this.name = params[1];
-        this.salary = params[2];
-        this.gender = params[3];
-        this.department = params[4]
-        this.startDate = params[5];
-        this.note = params[6];
-        this.profilePic = params[7];
-    }
-
     get name() {return this._name; }
     set name(name) {
         let nameRegex = RegExp('^[A-Z]{1}[a-z]{2,}$');
