@@ -92,6 +92,8 @@ function resetForm() {
     unSelectValues('[name=gender]');
     unSelectValues('[name=department]');
     setValue('#salary','');
+    const salary = document.querySelector('#salary');
+    salary.dispatchEvent(new Event('input'));
     setValue('#notes','');
     setValue('#day','01');
     setValue('#month','01');
