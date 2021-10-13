@@ -1,11 +1,21 @@
+let EmployeePayrllDataList;
+
 window. addEventListener( 'DOMContentLoaded', (event) => {
+    EmployeePayrllDataList = getDataFromLocalStorage();
+    document.querySelector('.emp-count').textContent = EmployeePayrllDataList.length;
     createInnerHtml();
+    localStorage.removeItem('editEmp');
 });
+
+function getDataFromLocalStorage() {
+    return localStorage.getItem('EmployeePayrllDataList') ? JSON.parse(localStorage.getItem('EmployeePayrllDataList')) : [];
+}
 
 const createInnerHtml = () => {
     const headerHtml = "<th></th><th>Name</th><th>Gender</th><th>Department</th>"+
                         "<th>Salary</th><th>Start Date</th><th>Actions</th>";
-    let employeeData = createEmployeePayrollJSON();
+    let employeeData = EmployeePayrllDataList;
+    if(employeeData.length==0) return;
     let innerHtml = `${headerHtml}`;
     for(const empPayrollData of employeeData) {
         innerHtml += `
@@ -18,7 +28,7 @@ const createInnerHtml = () => {
                 ${getDeptHTML(empPayrollData._department)}
             </td>
             <td>${empPayrollData._salary}</td>
-            <td>${empPayrollData._startDate}</td>
+            <td>${stringifyDate(empPayrollData._startDate)}</td>
             <td>
                 <img id="${empPayrollData._id}" onclick="remove(this)" alt="delete" 
                 src="../assets/icons/delete-black-18dp.svg">
@@ -33,6 +43,18 @@ const createInnerHtml = () => {
 
 const createEmployeePayrollJSON = () => {
     let employeeData = [ {
+        _name: "Narayan M",
+        _gender: 'Male',
+        _department: [
+            'Engineering',
+            'Finance'
+        ],
+        _salary: '500000',
+        _startDate: '12 Oct 2021',
+        _note: '',
+        _profilePic: "../assets/profile-images/Ellipse -2.png"
+    },
+    {
         _name: "Narayan M",
         _gender: 'Male',
         _department: [

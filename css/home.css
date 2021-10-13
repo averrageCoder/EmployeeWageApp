@@ -74,16 +74,18 @@ body {
     letter-spacing: 0px;
     color: #42515f;
     opacity:1;
+    display: flex;
 }
 
 .emp-count {
     background-color: #82a70c;
     color: white;
-    border-radius: 42%;
+    border-radius: 45%;
     font-size: 16px;
     width: 26px;
     text-align: center;
     display: inline-block;
+    margin-left: 10px;
 }
 
 .add-button {
@@ -98,6 +100,7 @@ body {
     outline: none;
     cursor: pointer;
     text-decoration: none;
+    display: flex;
 }
 
 /* UC 3 */
@@ -110,7 +113,7 @@ body {
 .table {
     width: 100%;
     border-collapse:separate;
-    border-spacing: 0 15px;
+    border-spacing: 0 5px;
     min-width: 800px;
 }
 
@@ -121,12 +124,13 @@ td, th {
 
 th {
     background: #42515f 0% 0% no-repeat padding-box;
-    border-radius: 3px 3px 0px 0px;
+    border-radius: 0px 0px 0px 0px;
     text-align: left;
     font: normal normal normal 18px/24px Roboto;
     letter-spacing: 0px;
     color: white;
     text-transform: uppercase;
+    font-weight: bold;
     opacity: 1;
     border: 0px solid #dddddd;
 }
@@ -135,6 +139,11 @@ tr:not(:first-child) {
     background: #ffffff 0% 0% no-repeat padding-box;
     border: 1px solid #e3e3e3;
     border-radius: 3px;
+}
+
+tr:hover {
+    background-color: #e3e3e3;
+    transform: scale(0.99);
 }
 
 td {
