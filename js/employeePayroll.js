@@ -1,3 +1,6 @@
+let isUpdate = false;
+let empPayrollObj = {};
+
 window.addEventListener('DOMContentLoaded',(event) => {
     const name = document.querySelector('#name');
     const text_error = document.querySelector('.name-error');
@@ -21,6 +24,8 @@ window.addEventListener('DOMContentLoaded',(event) => {
     salary.addEventListener('input',function() {
         salary_output.textContent = salary.value;
     });
+
+    checkForUpdate();
 });
 
 
@@ -123,4 +128,42 @@ const setValue = (id, value) => {
 const setTextValue = (property, value) => {
     const text_error = document.querySelector(property);
     text_error.textContent = value;
+}
+
+//curd operations
+function checkForUpdate() {
+    const employeePayrollJSON = localStorage.getItem('editEmp');
+    isUpdate = employeePayrollJSON ? true:false;
+    if(!isUpdate) return;
+    empPayrollObj = JSON.parse(employeePayrollJSON);
+    setForm();
+}
+
+function setForm() {
+    setValue('#name',empPayrollObj._name);
+    setSelectValues('[name=profile]',empPayrollObj._profilePic);
+    setSelectValues('[name=gender]',empPayrollObj._gender);
+    setSelectValues('[name=department]',empPayrollObj._department);
+    setValue('#salary',empPayrollObj._salary);
+    const salary = document.querySelector('#salary');
+    salary.dispatchEvent(new Event('input'));
+    setValue('#notes',empPayrollObj._note);
+    let date = new Date(empPayrollObj._startDate);
+    setValue('#day',("0" + date.getDate()).slice(-2));
+    setValue('#month',("0" + (date.getMonth() + 1)).slice(-2));
+    setValue('#year',date.getFullYear());
+}
+
+function setSelectValues(property, value) {
+    let allItems = document.querySelectorAll(property);
+    allItems.forEach(item => {
+        if(Array.isArray(value)){
+            if(value.includes(item.value)) {
+                item.checked = true;
+            }
+        }
+        else if(item.value== value) {
+            item.checked = true;
+        }
+    });
 }

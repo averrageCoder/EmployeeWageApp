@@ -4,6 +4,7 @@ window. addEventListener( 'DOMContentLoaded', (event) => {
     EmployeePayrllDataList = getDataFromLocalStorage();
     document.querySelector('.emp-count').textContent = EmployeePayrllDataList.length;
     createInnerHtml();
+    localStorage.removeItem('editEmp');
 });
 
 function getDataFromLocalStorage() {
