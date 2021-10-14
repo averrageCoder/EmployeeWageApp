@@ -25,6 +25,11 @@ body {
     width: 80%;
 }
 
+.logo-content a {
+    text-decoration: none;
+    display: flex;
+}
+
 .logo-content img {
     border: 0px solid #42515f;
 }
@@ -71,6 +76,7 @@ body {
     text-transform: capitalize;
     opacity: 1;
     padding-bottom: 20px;
+    text-align: center;
 }
 
 .row-content {

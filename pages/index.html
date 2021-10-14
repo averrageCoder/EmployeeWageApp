@@ -11,16 +11,18 @@
     <!-- UC1 -->
     <header class="header-content header">
         <div class="logo-content">
-            <img src="../assets/images/logo.png" alt="logo" width="50">
-            <div>
-                <span class="emp-text">EMPLOYEE</span><br>
-                <span class="emp-text emp-payroll">PAYROLL</span>
-            </div>
+            <a href="./home.html">
+                <img src="../assets/images/logo.png" alt="logo" width="50">
+                <div>
+                    <span class="emp-text">EMPLOYEE</span><br>
+                    <span class="emp-text emp-payroll">PAYROLL</span>
+                </div>
+            </a>
         </div>
     </header>
     <!-- UC2 -->
     <div class="form-content">
-        <form class="form" action="#" onreset="event.preventDefault(); resetForm()" onsubmit="event.preventDefault();save()">
+        <form class="form" action="#" onreset="event.preventDefault(); resetForm()" onsubmit="save()">
             <div class="form-head">EMPLOYEE PAYROLL FORM</div>
             <div class="row-content">
                 <label class="label text" for="name">Name</label>
@@ -51,9 +53,9 @@
             <div class="row-content">
                 <label class="label text" for="gender">Gender</label>
                 <div>
-                    <input type="radio" id="male" name="gender" value="m">
+                    <input type="radio" id="male" name="gender" value="Male">
                     <label class="text" for="male">Male</label>
-                    <input type="radio" id="female" name="gender" value="f">
+                    <input type="radio" id="female" name="gender" value="Female">
                     <label class="text" for="female">Female</label>
                 </div>
             </div>
@@ -141,7 +143,7 @@
                 <textarea id="notes" class="input" name="notes" style="height: 100px;"></textarea>
             </div>
             <div class="buttonParent">
-                <a href="./index.html" class="resetButton button cancelButton">Cancel</a>
+                <a href="./home.html" class="resetButton button cancelButton">Cancel</a>
                 <div class="submit-reset">
                     <button type="submit" class="button submitButton">Submit</button>
                     <button type="reset" class="resetButton button">Reset</button>

@@ -4,7 +4,6 @@ window. addEventListener( 'DOMContentLoaded', (event) => {
     EmployeePayrllDataList = getDataFromLocalStorage();
     document.querySelector('.emp-count').textContent = EmployeePayrllDataList.length;
     createInnerHtml();
-    localStorage.removeItem('editEmp');
 });
 
 function getDataFromLocalStorage() {
@@ -76,4 +75,17 @@ const getDeptHTML = (deptList) => {
         deptHtml = `${deptHtml} <div class='dept-label'>${dept}</div>`
     }
     return deptHtml;
+}
+
+const remove = (node) => {
+    let employeeData = EmployeePayrllDataList.find(empData => empData._id == node.id);
+    console.log(node.id);
+    if(!employeeData) return;
+    const index = EmployeePayrllDataList
+                    .map(empData => empData._id)
+                    .indexOf(employeeData._id);
+    EmployeePayrllDataList.splice(index, 1);
+    localStorage.setItem('EmployeePayrllDataList',JSON.stringify(EmployeePayrllDataList));
+    document.querySelector('.emp-count').textContent = EmployeePayrllDataList.length;
+    createInnerHtml();
 }

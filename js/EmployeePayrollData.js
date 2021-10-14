@@ -29,10 +29,11 @@ class EmployeePayrllData {
 
     get gender() {return this._gender; }
     set gender(gender) {
-        let genderRegex = RegExp('^[MFmf]{1}$')
-        if(genderRegex.test(gender)) this._gender = gender;
-        else 
-            throw 'gender is incorrect';
+        // let genderRegex = RegExp('^[MFmf]{1}$')
+        // if(genderRegex.test(gender)) this._gender = gender;
+        // else 
+        //     throw 'gender is incorrect';
+        this._gender = gender;
     }
 
     get note() {return this._note; }
