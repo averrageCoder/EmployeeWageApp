@@ -22,7 +22,7 @@
     </header>
     <!-- UC2 -->
     <div class="form-content">
-        <form class="form" action="#" onreset="event.preventDefault(); resetForm()" onsubmit="save()">
+        <form class="form" action="#" onreset="event.preventDefault(); resetForm()" onsubmit="save(event)">
             <div class="form-head">EMPLOYEE PAYROLL FORM</div>
             <div class="row-content">
                 <label class="label text" for="name">Name</label>
@@ -53,9 +53,9 @@
             <div class="row-content">
                 <label class="label text" for="gender">Gender</label>
                 <div>
-                    <input type="radio" id="male" name="gender" value="Male">
+                    <input type="radio" id="male" name="gender" value="Male" required>
                     <label class="text" for="male">Male</label>
-                    <input type="radio" id="female" name="gender" value="Female">
+                    <input type="radio" id="female" name="gender" value="Female" required>
                     <label class="text" for="female">Female</label>
                 </div>
             </div>
@@ -83,7 +83,7 @@
             <div class="row-content">
                 <label class="label text" for="startDate">Start Date</label>
                 <div>
-                    <select id="day" name="day">
+                    <select id="day" class="startDate" name="day">
                         <option value="01">1</option>
                         <option value="02">2</option>
                         <option value="03">3</option>
@@ -116,7 +116,7 @@
                         <option value="30">30</option>
                         <option value="31">31</option>
                    </select>
-                   <select id="month" name="month">
+                   <select id="month" class="startDate" name="month">
                     <option value="01">January</option>
                     <option value="02">February</option>
                     <option value="03">March</option>
@@ -130,7 +130,7 @@
                     <option value="11">November</option>
                     <option value="12">December</option>
                  </select> 
-                 <select id="year" name="year">
+                 <select id="year" class="startDate"  name="year">
                     <option value="2021">2021</option>
                     <option value="2020">2020</option>
                     <option value="2019">2019</option>

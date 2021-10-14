@@ -54,14 +54,13 @@ class EmployeePayrllData {
     get startDate() {return this._startDate; }
     set startDate(startDate) {
         var today = new Date();
+        if(today < startDate) throw "Start date is in future!"
         const one_month_ago = new Date(today.setDate(today.getDate()-30));
         today = new Date();
-        if(today < startDate || startDate < one_month_ago) {
-            throw 'Start date is invalid!';
+        if(startDate < one_month_ago) {
+            throw 'Start date is beyond 30days!';
         }
-        else {
-            this._startDate = startDate;
-        }
+        this._startDate = startDate;
     }
 
     toString() {
